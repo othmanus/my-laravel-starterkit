@@ -13,8 +13,8 @@ class SettingComposer {
      */
     public function compose(View $view)
     {
-        // $settings = Setting::getSettings();
-        $settings = ['site_name' => "Starterkit"];
+        $settings = Setting::getSettings();
+        // $settings = ['site_name' => "Starterkit"];
         $view->with('settings', $settings);
     }
 

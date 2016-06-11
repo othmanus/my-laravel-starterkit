@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration {
 			$table->increments('id');
 			$table->string('key')->unique();
 			$table->text('value');
+			$table->integer('max')->default(1);
 		});
 	}
 

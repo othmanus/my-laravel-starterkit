@@ -2,9 +2,9 @@
 
 @if($setting->is_array)
 
-@for($i = 0; $i < config('settings.max_'.$setting->key, 1); $i++)
+@for($i = 0; $i < $setting->max; $i++)
 <div class="form-group">
-	<label for="value" class="control-label">{{ trans('settings.'.$setting->key) .' '. ($i+1)}} </label>
+	<label for="value" class="control-label">{{ $setting->key .' '. ($i+1)}} </label>
 	<input type="text" class="form-control" name="value[]" value="{{ isset($values[$i]) ? $values[$i] : null }}">
 </div>
 @endfor

@@ -20,33 +20,33 @@ class Setting extends Model {
      */
 	public function scopeGetSettings($query)
 	{
-        return $query->get()->toArray();
-//		return [
-//			// Informations générales
-//			'site_name' => $this->getFirstBy('key', 'site_name'),
-//			'slogan' 	=> $this->getFirstBy('key', 'slogan'),
-//			'logo' 		=> $this->getFirstBy('key', 'logo'),
-//			'keywords' 	=> $this->getFirstBy('key', 'keywords'),
-//
-//			// Coordonnées de contact
-//			'address' 	=> $this->getFirstBy('key', 'address'),
-//			'phone' 	=> $this->getFirstBy('key', 'phone'),
-//			'mobile' 	=> $this->getFirstBy('key', 'mobile'),
-//			'fax' 		=> $this->getFirstBy('key', 'fax'),
-//			'email' 	=> $this->getFirstBy('key', 'email'),
-//
-//			// Réseaux sociaux
-//			'facebook' 	=> $this->getFirstBy('key', 'facebook'),
-//			'google' 	=> $this->getFirstBy('key', 'google'),
-//			'twitter' 	=> $this->getFirstBy('key', 'twitter'),
-//			'youtube' 	=> $this->getFirstBy('key', 'youtube'),
-//			'linkedin' 	=> $this->getFirstBy('key', 'linkedin'),
-//			'instagram' => $this->getFirstBy('key', 'instagram'),
-//
-//			// Google Map
-//			'latitude' 	=> $this->getFirstBy('key', 'latitude'),
-//			'longitude' => $this->getFirstBy('key', 'longitude'),
-//		];
+        // return $query->get()->toArray();
+		return [
+			// Informations générales
+			'site_name' => $this->getFirstBy('key', 'site_name'),
+			'slogan' 	=> $this->getFirstBy('key', 'slogan'),
+			'logo' 		=> $this->getFirstBy('key', 'logo'),
+			'keywords' 	=> $this->getFirstBy('key', 'keywords'),
+
+			// Coordonnées de contact
+			'address' 	=> $this->getFirstBy('key', 'address'),
+			'phone' 	=> $this->getFirstBy('key', 'phone'),
+			'mobile' 	=> $this->getFirstBy('key', 'mobile'),
+			'fax' 		=> $this->getFirstBy('key', 'fax'),
+			'email' 	=> $this->getFirstBy('key', 'email'),
+
+			// Réseaux sociaux
+			'facebook' 	=> $this->getFirstBy('key', 'facebook'),
+			'google' 	=> $this->getFirstBy('key', 'google'),
+			'twitter' 	=> $this->getFirstBy('key', 'twitter'),
+			'youtube' 	=> $this->getFirstBy('key', 'youtube'),
+			'linkedin' 	=> $this->getFirstBy('key', 'linkedin'),
+			'instagram' => $this->getFirstBy('key', 'instagram'),
+
+			// Google Map
+			'latitude' 	=> $this->getFirstBy('key', 'latitude'),
+			'longitude' => $this->getFirstBy('key', 'longitude'),
+		];
 	}
     
     /**
@@ -55,8 +55,8 @@ class Setting extends Model {
      * @param  string  $value the value of the key
      * @return Setting the instance of the Eloquent model
      */
-    private function scopeGetFirstBy($query, $key, $value) {
-        return $query->where($key, $value)->take(1)->get()->first();
+    private function getFirstBy($key, $value) {
+        return $this->where($key, $value)->take(1)->get()->first();
     }
     
 	/*

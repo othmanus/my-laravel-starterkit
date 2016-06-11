@@ -112,44 +112,11 @@ Configuration
 							<td>{!! $email->to_string !!}</td>
 							<td><a href="{{ route('admin.settings.edit', $email->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
 						</tr>
-						<tr>
-							<td class="text-center"><i class="fa fa-clock-o"></i></td>
-							<td>Horaires d'ouverture</td>
-							<td>{!! $opening_time->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $opening_time->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
 					</tbody>
 				</table>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
 
-		<!-- Coordonnées de contact -->
-		<div class="box box-info">
-			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-envelope"></i> Nos adresses</h3>
-			</div><!-- /.box-header -->
-			<div class="box-body">
-				<table class="table table-stripped">
-					<thead>
-						<tr>
-							<th width="5%"></th>
-							<th width="15%">Configuration</th>
-							<th>Valeur</th>
-							<th width="5%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="text-center"><i class="fa fa-home"></i></td>
-							<td>Nos adresses</td>
-							<td>{!! $full_address->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $full_address->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
-						
-					</tbody>
-				</table>
-			</div><!-- /.box-body -->
-		</div><!-- /.box -->
 		<!-- Réseaux sociaux -->
 		<div class="box box-warning">
 			<div class="box-header">
@@ -207,49 +174,6 @@ Configuration
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
 		
-		<div class="box box-warning">
-			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-graduation-cap"></i> Expérience</h3>
-			</div><!-- /.box-header -->
-			<div class="box-body">
-				<table class="table table-stripped">
-					<thead>
-						<tr>
-							<th width="5%"></th>
-							<th width="15%">Configuration</th>
-							<th>Valeur</th>
-							<th width="5%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="text-center"><i class="fa fa-building-o"></i></td>
-							<td>Sites en Algérie</td>
-							<td>{!! $nbr_sites->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $nbr_sites->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><i class="fa fa-users"></i></td>
-							<td>Employés</td>
-							<td>{!! $nbr_employes->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $nbr_employes->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><i class="fa fa-globe"></i></td>
-							<td>Villes couvertes</td>
-							<td>{!! $nbr_villes->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $nbr_villes->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><i class="fa fa-graduation-cap"></i></td>
-							<td>Années d'expérience</td>
-							<td>{!! $nbr_experience->to_string !!}</td>
-							<td><a href="{{ route('admin.settings.edit', $nbr_experience->id) }}" role="button" class="btn btn-success btn-xs btn-edit" title="Modifier"><i class="fa fa-pencil-square-o"></i></a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div><!-- /.box-body -->
-		</div><!-- /.box -->
 		<!-- Google Map -->
 		<div class="box box-primary">
 			<div class="box-header">

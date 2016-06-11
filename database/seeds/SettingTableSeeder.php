@@ -23,12 +23,12 @@ class SettingTableSeeder extends Seeder {
 		*/
 		$setting = new Setting;
 		$setting->key = "site_name";
-		$setting->value = "Starter Kit";
+		$setting->value = "Starterkit";
 		$setting->save();
 
 		$setting = new Setting;
 		$setting->key = "slogan";
-		$setting->value="My Laravel starter kit";
+		$setting->value="My Laravel Starter Kit";
 		$setting->save();
 
 		$setting = new Setting;
@@ -53,6 +53,7 @@ class SettingTableSeeder extends Seeder {
 		$setting->value = [
 		
 		];
+		$setting->max = 3;
 		$setting->save();
 
 		// Les emails de contact
@@ -61,6 +62,7 @@ class SettingTableSeeder extends Seeder {
 		$setting->value = [
 		
 		];
+		$setting->max = 3;
 		$setting->save();
 
 		// Les numéros de téléphones
@@ -69,6 +71,7 @@ class SettingTableSeeder extends Seeder {
 		$setting->value = [
 		
 		];
+		$setting->max = 3;
 		$setting->save();
 
 		// Les numéros mobile
@@ -76,6 +79,7 @@ class SettingTableSeeder extends Seeder {
 		$setting->key = "mobile";
 		$setting->value = [
 		];
+		$setting->max = 3;
 		$setting->save();
 
 		// Les numéros de fax
@@ -84,6 +88,7 @@ class SettingTableSeeder extends Seeder {
 		$setting->value = [
 		
 		];
+		$setting->max = 3;
 		$setting->save();
 
 		$setting = new Setting;
