@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use Laracasts\Presenter\Presenter;
+
+class DummyClass extends Presenter
+{
+    
+}

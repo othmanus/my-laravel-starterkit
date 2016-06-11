@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Presenters\ImageablePresenter;
+
+class DummyClass extends ImageablePresenter
+{
+    
+}

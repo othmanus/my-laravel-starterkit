@@ -1,0 +1,51 @@
+@extends('back.layouts.index')
+
+@section('meta_title')
+Créer une ---
+@stop
+
+@section('content-header')
+<h1>
+	Gestion des ---
+</h1>
+@stop
+
+@section('content')
+<div class="row">
+	<div class="col-md-6 col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Créer la ---</h3>
+			</div><!-- /.box-header -->
+			{!! Form::open(['route' => ['admin.---.store'], 'method' => 'post', 'role' => 'form']) !!}
+			<div class="box-body">
+				@include('back.layouts._alert')
+				<p class="text-muted">Les champs marqués par <span class="text-red">*</span> sont obligatoires</p>
+				{{--
+				<div class="form-group {{ $errors->first('variable') ? 'has-error' : '' }}">
+					<label for="variable" class="control-label">Titre <span class="text-red">*</span></label>
+					<input type="text" class="form-control" name="variable" id="variable" value="{{ old('variable')}}" placeholder="Entrer le variable de la ---" required>
+					<p class="text-red">{{ $errors->first('variable') }}</p>
+				</div>
+				--}}
+			</div><!-- /.box-body -->
+			<div class="box-footer">
+				<button type="submit" id="save" class="btn btn-primary"><i class="fa fa-save"></i> Enregister</button>
+			</div><!-- /.box-footer -->
+			{!! Form::close() !!}
+		</div><!-- /.box -->
+	</div><!-- /.col-xs-6 -->
+	{{-- 
+	<div class="col-md-6 col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Gallerie d'images</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				@include('back.images._dropzone', ['model' => $module])
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+	</div><!-- /.col-xs-6 -->
+	--}}
+</div><!-- /.row -->
+@stop

@@ -1,0 +1,1 @@
+./resources/views/front/pages/index.blade.php

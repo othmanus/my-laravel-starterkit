@@ -1,0 +1,132 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests\Module\ModuleStoreRequest;
+use App\Http\Requests\Module\ModuleUpdateRequest;
+use App\Http\Controllers\Controller;
+
+use App\Models\Module\Module;
+
+// use Auth;
+
+class DummyClass extends Controller
+{
+    /*
+	|--------------------------------------------------------------------------
+	| Backend
+	|--------------------------------------------------------------------------
+	|
+	*/
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$modules = Module::paginate();
+		return view('back.modules.index', compact('modules'));
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return view('back.modules.create');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store(ModuleStoreRequest $request)
+	{
+		$input = $request->except('_token');
+
+		$module = Module::create($input);
+		
+		return redirect()->route('admin.modules.index')
+		->with('message', 'Le module '.$module->title.' est créé');
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$module = Module::find($id);
+		return view('back.modules.edit', compact('module'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update(ModuleUpdateRequest $request, $id)
+	{
+		$input = $request->except('_token');
+
+		// save
+		$module = Module::find($id);
+		$module->update($input);
+
+		// reponse
+		return redirect()->route('admin.modules.index')->with('message', 'Le module '.$module->title.' est modifié');
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$module = Module::find($id);
+		$module->delete();
+		return redirect()->route('admin.modules.index')->with('message', "Le module est supprimé");
+	}
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Frontend
+	|--------------------------------------------------------------------------
+	|
+	*/
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function frontIndex()
+	{
+		$modules = Module::paginate();
+		return view('front.modules.index', compact('modules'));
+	}
+
+	/**
+	 * Show the the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$module = Module::find($id);
+		return view('front.modules.show', compact('module'));
+	}
+
+}

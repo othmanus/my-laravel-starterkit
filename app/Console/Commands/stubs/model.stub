@@ -1,0 +1,57 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
+
+use Cviebrock\EloquentSluggable\Sluggable;
+
+class DummyClass extends Model
+{
+
+    use Sluggable;
+    use PresentableTrait;
+        
+    protected $presenter = 'App\Presenters\DummyClass\DummyClassPresenter';
+
+	protected $guarded = ['id'];
+
+	/*
+	|--------------------------------------------------------------------------
+	| Relations
+	|--------------------------------------------------------------------------
+	|
+	*/
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Scopes
+	|--------------------------------------------------------------------------
+	|
+	*/
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Getters and Setters
+	|--------------------------------------------------------------------------
+	|
+	*/
+
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'id'
+            ]
+        ];
+    }
+}
