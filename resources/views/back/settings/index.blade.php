@@ -4,12 +4,6 @@
 Configuration
 @stop
 
-{{-- css --}}
-@section('head')
-
-@stop
-
-{{-- Titre de la page --}}
 @section('content-header')
 <h1>
 	Configurations
@@ -17,7 +11,6 @@ Configuration
 {{-- {!! Breadcrumbs::render('admin.settings.index') !!} --}}
 @stop
 
-{{-- Contenu de la page --}}
 @section('content')
 <div class="row">
 	<div class="col-md-8 col-xs-12">
@@ -255,7 +248,6 @@ Configuration
 
 <script type="text/javascript">
 	$('#modal-edit').on('show.bs.modal', function (event) {
-		// CKEDITOR.replace('value');
 		$( 'textarea#value' ).ckeditor();
 	});
 </script>

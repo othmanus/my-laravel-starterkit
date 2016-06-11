@@ -104,6 +104,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['moderator']], function()
 		'as' => 'admin.pages.category',
 		'uses' => 'Page\PagesController@category'
 	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| Settings management
+	| Common settings as : Site name, emails, phones, etc.
+	|--------------------------------------------------------------------------
+	*/
+	Route::resource('settings', 'Setting\SettingsController', ['only' => ['index', 'edit', 'update']]);
 });
 
 /*

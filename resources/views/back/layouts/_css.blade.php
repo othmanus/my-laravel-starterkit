@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title>Administration | {{-- $settings['site_name']->to_string --}}</title>
+<title>Administration | {{ $settings['site_name']->to_string }}</title>
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />

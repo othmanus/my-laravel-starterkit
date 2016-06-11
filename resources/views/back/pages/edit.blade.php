@@ -46,7 +46,7 @@ Modifier une ---
 				</div>
 				
 			</div><!-- /.box-body -->
-			{{-- <div id="images_id" style="display:none;"></div> --}}
+			<div id="images_id"></div>
 			<div class="box-footer">
 				<button type="submit" id="save" class="btn btn-primary"><i class="fa fa-save"></i> Enregister</button>
 			</div><!-- /.box-footer -->

@@ -26,6 +26,7 @@
 					<input type="text" class="form-control" name="name" id="name" value="{{ old('name') ? old('name') : $user->name }}" placeholder="Entrer le nom de l'utilisateur" required>
 					<p class="text-red">{{ $errors->first('name') }}</p>
 				</div>
+				@can('administer', null)
 				<div class="form-group {{ $errors->first('role') ? 'has-error' : '' }}">
 					<label for="role" class="control-label">Role <span class="text-red">*</span></label>
 					<select name="role" id="role" class="form-control">
@@ -35,11 +36,14 @@
 					</select>
 					<p class="text-red">{{ $errors->first('role') }}</p>
 				</div>
+				@endcan
+
 				<div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
 					<label for="email" class="control-label">Email <span class="text-red">*</span></label>
 					<input type="email" class="form-control" name="email" id="email" value="{{ old('email') ? old('email') : $user->email }}" placeholder="Entrer l'email de l'utilisateur " required>
 					<p class="text-red">{{ $errors->first('email') }}</p>
 				</div>
+				{{--
 				<div class="form-group">
 					<label for="active" class="control-label">Statut</label>
 					<select class="form-control" name="active" id="active">
@@ -47,7 +51,7 @@
 						<option value="1" {{ $user->active ? 'selected' : '' }}>Activé</option>
 					</select>
 				</div>
-
+				--}}
 			</div><!-- /.box-body -->
 			<div class="box-footer">
 				<button type="submit" id="save" class="btn btn-primary"><i class="fa fa-save"></i> Enregistrer</button>
@@ -55,6 +59,8 @@
 			{!! Form::close() !!}
 		</div><!-- /.box -->
 	</div><!-- /.col-xs-6 -->
+
+	@can("administer", null)
 	<div class="col-xs-6">
 		<div class="box">
 			<div class="box-header">
@@ -84,6 +90,7 @@
 			{!! Form::close() !!}
 		</div><!-- /.box -->
 	</div><!-- /.col-xs-6 -->
+	@endcan
 	
 </div><!-- /.row -->
 @stop

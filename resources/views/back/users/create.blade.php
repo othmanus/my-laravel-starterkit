@@ -21,10 +21,11 @@
 				@include('back.layouts._alert')
 				<p class="text-muted">Les champs marqués par <span class="text-red">*</span> sont obligatoires</p>
 				<div class="form-group {{ $errors->first('name') ? 'has-error' : '' }}">
-					<label for="name" class="control-label">Nom de l'utilisateur <span class="text-red">*</span></label>
+					<label for="name" class="control-label">Nom <span class="text-red">*</span></label>
 					<input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Entrer le nom de l'utilisateur " required>
 					<p class="text-red">{{ $errors->first('name') }}</p>
 				</div>
+				@can("administer", null)
 				<div class="form-group {{ $errors->first('role') ? 'has-error' : '' }}">
 					<label for="role" class="control-label">Role <span class="text-red">*</span></label>
 					<select name="role" id="role" class="form-control">
@@ -34,6 +35,7 @@
 					</select>
 					<p class="text-red">{{ $errors->first('role') }}</p>
 				</div>
+				@endcan
 				<div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
 					<label for="email" class="control-label">Email <span class="text-red">*</span></label>
 					<input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" placeholder="Entrer l'email de l'utilisateur " required>
@@ -49,6 +51,7 @@
 					<input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Re taper le mot de passe de l'utilisateur " required>
 					<p class="text-red">{{ $errors->first('password_confirmation') }}</p>
 				</div>
+				{{--
 				<div class="form-group">
 					<label for="active" class="control-label">Statut</label>
 					<select class="form-control" name="active" id="active">
@@ -56,6 +59,7 @@
 						<option value="0" {{ old('active') == '0' ? 'selected' : '' }}>Bloqué</option>
 					</select>
 				</div>
+				--}}
 			</div><!-- /.box-body -->
 			<div class="box-footer">
 				<!-- <input type="submit" class="btn btn-primary" value="Register"> -->

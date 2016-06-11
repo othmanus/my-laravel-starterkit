@@ -13,7 +13,7 @@
     <!-- header logo: style can be found in header.less -->
     <header class="main-header">
         <a href="{{ route('admin.index') }}" class="logo">
-            {{-- $settings['site_name']->to_string --}}
+            {{ $settings['site_name']->to_string }}
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
