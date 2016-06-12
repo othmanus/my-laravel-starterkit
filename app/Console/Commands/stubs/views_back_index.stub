@@ -1,14 +1,14 @@
 @extends('back.layouts.index')
 
 @section('meta_title')
-Gestion des ---
+Gestion des modules
 @stop
 
 @section('content-header')
 <h1>
-	Gestion des ---
+	Gestion des modules
 </h1>
-{{-- {!! Breadcrumbs::render('admin.---.index') !!} --}}
+{{-- {!! Breadcrumbs::render('admin.modules.index') !!} --}}
 @stop
 
 @section('content')
@@ -16,7 +16,7 @@ Gestion des ---
 	<div class="col-md-10 col-sm-12 col-xs-12">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title">Toutes les ---</h3>
+				<h3 class="box-title">Tous les modules</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 				@include('back.layouts._alert')
@@ -30,7 +30,7 @@ Gestion des ---
 					</tr>
 					@if($modules->isEmpty())
 					<tr>
-						<td colspan="5">
+						<td colspan="3">
 							<div class="alert alert-warning">
 								<p>Il n'y a aucun élément à afficher.</p>
 							</div>
@@ -40,7 +40,7 @@ Gestion des ---
 					@foreach($modules as $module)
 					<tr>
 						<td>{{ $module->id }}</td>
-						<!-- <td><img src="{{ $module->present()->default_thumb_image }}" alt="{{ $module->titre }}"></td> -->
+						<!-- <td><img src="{{ $module->present()->default_image_thumbnail }}" alt="{{ $module->variable }}"></td> -->
 						<td>{{ $module->title }}</td>
 						<td>
 							{!! Form::open(['route' => ['admin.modules.destroy', $module->id], 'method' => 'delete', 'class' => 'pull-right']) !!}
@@ -55,9 +55,9 @@ Gestion des ---
 				</table>
 			</div><!-- /.box-body -->
 			<div class="box-footer clearfix">
-				{{-- 
+				
 				{!! $modules->render() !!}
-				--}}
+				
 			</div>
 		</div><!-- /.box -->
 	</div><!-- /.col -->
