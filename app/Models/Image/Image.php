@@ -45,7 +45,7 @@ class Image extends Model
 	 */
 	public function scopeDefault($query)
 	{
-		return $query->where('default', 1)->take(1)->get()->first();
+		return $query->where('default', 1)->take(1)->get();
 	}
 
 	/*

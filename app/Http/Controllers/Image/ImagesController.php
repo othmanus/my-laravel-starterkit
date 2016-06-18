@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Image\Image;
 use App\Http\Requests\Image\ImageStoreRequest;
 use App\Http\Requests\Image\ImageUpdateRequest;
+use App\Http\Requests\Image\ImageDestroyRequest;
 use App\Http\Controllers\Controller;
 
 class ImagesController extends Controller
@@ -27,7 +28,7 @@ class ImagesController extends Controller
 			// $upload_success = $file->copy(public_path('temp'), $filename);
 
 			if ($upload_success) {
-				$image = Image::create(['file_name' => $filename, 'path' => public_path('temp')."/{$filename}"]);
+				$image = Image::create(['file_name' => $filename, 'path' => "temp/{$filename}"]);
 
 				return response()->json(['success' => true, 'image' => $image], 200);
 			} else {
@@ -63,7 +64,7 @@ class ImagesController extends Controller
 	 * 
 	 * @return json
 	 */
-	public function dropzoneUpdate(ImageRequest $request, $id)
+	public function dropzoneUpdate(ImageUpdateRequest $request, $id)
 	{
 		$input = $request->except('_token', '_method');
 		// $input['subtitle'] = $input['subtitle'] && $input['subtitle'] != 'undefined' ? $input['subtitle'] : '';
@@ -82,26 +83,20 @@ class ImagesController extends Controller
 	 * 
 	 * @return json
 	 */
-	public function dropzoneDelete(ImageRequest $request)
+	public function dropzoneDelete(ImageDestroyRequest $request)
 	{
-		$file = $request->get('name');
-		$id = $request->get('id');
-		$style = $request->get('style');
-		$image = $this->image->find($id);
-		
-		if(!$style) {
-			$upload_success = \File::delete(public_path("temp\\".$file));
-		} else {
-			$upload_success = $image->deleteStyles($file, config('images.'.$style));
-		}
-		$image->delete();
+		$image = Image::find($request->get('id'));
 
-		if ($upload_success) {
-			return response()->json('success', 200);
+		$model = $image->imageable;
+
+		if($model) {
+			$image->deleteStyles($model->image_styles);
 		} else {
-			return response()->json('error', 400);
+			\File::delete(public_path($image->path));
 		}
-		
+
+		$image->delete();
+		return response()->json('success', 200);		
 	}
 
 	/** 
